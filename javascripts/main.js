@@ -1,6 +1,7 @@
 $(document).ready(function() {
     // Set up tour
     $('body').pagewalkthrough({
+        name: 'introduction',
         steps: [{
            popup: {
                content: '#walkthrough-1',
