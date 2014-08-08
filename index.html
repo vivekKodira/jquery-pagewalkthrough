@@ -8,6 +8,13 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="plugins/jquery-pagewalkthrough/css/jquery.pagewalkthrough.css">
+
+    <style>
+      #walkthrough-content {
+        display: none;
+      }
+    </style>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,19 +35,28 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>
-<a name="walkthrough" class="anchor" href="#walkthrough"><span class="octicon octicon-link"></span></a>Walkthrough</h1>
+          <h2>Note: this page, along with detailed usage and documentation for the plugin, is a work-in-progress</h2>
+
+          <h3>Contents</h3>
+
+          <div id="contents">
+            <h4><a href="pages/source-docs.html#default-options">Options and defaults</a></h4>
+            <h4><a href="pages/source-docs.html">Annotated source</a></h4>
+          </div>
+
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/warby-/jquery-pagewalkthrough/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/warby-/jquery-pagewalkthrough/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+          <div id="download-options">
+            <a href="https://github.com/warby-/jquery-pagewalkthrough/zipball/master" class="button">
+              <small>Download</small>
+              .zip file
+            </a>
+            <a href="https://github.com/warby-/jquery-pagewalkthrough/tarball/master" class="button">
+              <small>Download</small>
+              .tar.gz file
+            </a>
+          </div>
 
           <p class="repo-owner"><a href="https://github.com/warby-/jquery-pagewalkthrough"></a> is maintained by <a href="https://github.com/warby-">warby-</a>.</p>
 
@@ -60,5 +76,37 @@
             } catch(err) {}
           </script>
 
+    <div id="walkthrough-content">
+      <div id="walkthrough-1">
+        <h1>Welcome to the jQuery Page Walkthrough Demo Site</h1>
+
+        <p>Page Walkthrough is a flexible system for designing interactive, multimedia, educational walkthroughs.  This step of the walkthrough is a <em>modal</em> style step.</p>
+        <p>Click next to continue the tour</p>
+      </div>
+
+      <div id="walkthrough-2">
+        This step shows a <em>tooltip</em> style step, which allows you to highlight an area of the screen in order to draw the user's attention to it
+      </div>
+
+      <div id="walkthrough-3">
+        Click here to view the documentation for the available options which the plugin supports
+      </div>
+
+      <div id="walkthrough-4">
+        Click here to view the annotated source code for the plugin
+      </div>
+
+      <div id="walkthrough-5">
+        Click here to view the project on GitHub.  On the project page, you can get an overview of the issues, bugs, and planned features, view installation instructions, and see the changelog.
+      </div>
+
+      <div id="walkthrough-6">
+        Ready to get started building some awesome tours?  Here's your download options.
+      </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="plugins/jquery-pagewalkthrough/jquery.pagewalkthrough.js" type="text/javascript"></script>
+    <script src="javascripts/main.js" type="text/javascript"></script>
   </body>
 </html>
