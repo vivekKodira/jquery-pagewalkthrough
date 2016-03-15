@@ -1,15 +1,15 @@
 {
   "name": "jquery-pagewalkthrough",
   "homepage": "https://github.com/jwarby/jquery-pagewalkthrough",
-  "version": "2.7.0",
-  "_release": "2.7.0",
+  "version": "2.7.2",
+  "_release": "2.7.2",
   "_resolution": {
     "type": "version",
-    "tag": "v2.7.0",
-    "commit": "cb21b5c1870b79dac87707728a52e5d0ca05b468"
+    "tag": "v2.7.2",
+    "commit": "aad15ebb79c8392b7670ad3b8143d94a808f7079"
   },
   "_source": "git://github.com/jwarby/jquery-pagewalkthrough.git",
-  "_target": "^2.7.0",
+  "_target": "^2.7.2",
   "_originalSource": "jwarby/jquery-pagewalkthrough",
   "_direct": true
 }
