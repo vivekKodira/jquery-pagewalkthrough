@@ -104,7 +104,9 @@
       if (typeof _isCookieLoad === 'undefined') {
         _isWalkthroughActive = true;
 
-        if (!(onEnter())) {
+        onEnter()
+        .then( function( response ) {
+          if ( !response ) {
           return;
         }
 
@@ -119,6 +121,7 @@
             }
           }
         }, 100);
+        } );
       } else {
         onCookieLoad(_globalWalkthrough);
       }
@@ -130,11 +133,17 @@
       }
 
       _index = 0;
-      if (!(onRestart(e)) || !(onEnter(e))) {
+      if (!onRestart(e)) {
         return;
       }
 
+      onEnter()
+      .then( function( response ) {
+        if ( !response ) {
+          return;
+        }
       showStep();
+      } );
     },
 
     close: function() {
@@ -177,10 +186,15 @@
 
       _activeWalkthrough = _globalWalkthrough[name];
 
-      if ((name === _activeId && _isWalkthroughActive) || !(onEnter(e))) {
+      if ((name === _activeId && _isWalkthroughActive) ) {
         return;
       }
 
+      onEnter()
+        .then( function( response ) {
+          if ( !response ) {
+            return;
+          }
       _isWalkthroughActive = true;
       _firstTimeLoad = true;
       if (!(onBeforeShow())) {
@@ -194,6 +208,7 @@
       if ((isFirstStep() && _firstTimeLoad) && !onAfterShow()) {
         return;
       }
+      } );
     },
 
     next: function(e) {
@@ -203,10 +218,13 @@
       }
 
       _index = parseInt(_index, 10) + 1;
-      if (!onEnter(e)) {
+      onEnter()
+      .then( function( response ) {
+        if ( !response ) {
           methods.next();
       }
       showStep('next');
+      } );
     },
 
     prev: function(e) {
@@ -215,10 +233,13 @@
       }
 
       _index = parseInt(_index, 10) - 1;
-      if (!onEnter(e)) {
+       onEnter()
+      .then( function( response ) {
+        if ( !response ) {
         methods.prev();
       }
       showStep('prev');
+      } );
     },
 
     getOptions: function(activeWalkthrough) {
@@ -692,10 +713,10 @@
     var options = _activeWalkthrough;
 
     if (typeof options.steps[_index].onEnter === 'function') {
-      return options.steps[_index].onEnter.call(this, e, _index) !== false;
+      return options.steps[_index].onEnter.call(this, e, _index);
     }
 
-    return true;
+    return $.Deferred().resolve( true );
   }
 
   //callback for onRestart help
@@ -997,7 +1018,9 @@
         // Speed to use when scrolling to elements
         scrollSpeed: 1000,
         // Callback when entering the step
-        onEnter: $.noop,
+        onEnter: function() {
+          return $.Deferred().resolve( true );
+        },
         /* Callback when leaving the step.  Called with `true` if the user is
          * skipping the rest of the tour (gh #66)
          */
