@@ -175,7 +175,7 @@
 
       name = name || this.first().data('jpw').name;
 
-      _activeWalkthrough = _globalWalkthrough[this.first().data('jpw').name];
+      _activeWalkthrough = _globalWalkthrough[name];
 
       if ((name === _activeId && _isWalkthroughActive) || !(onEnter(e))) {
         return;
